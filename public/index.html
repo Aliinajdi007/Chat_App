@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leb-AnonChat</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#101014">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="/icon-192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="app-logo" id="app-logo">Leb-<span class="neon">AnonChat</span></div>
+        <div class="chat-header">1-to-1 Chat</div>
+        <div class="user-id-panel" id="user-id-panel" style="display:none;">
+            <span>Your ID: <span id="current-user-id" style="font-weight:bold;color:#00ffd0;"></span></span>
+            <button id="copy-user-id" title="Copy ID">Copy</button>
+        </div>
+        <div class="dm-history-panel">
+            <div class="dm-history-title">Previous Chats</div>
+            <ul id="dm-history-list"></ul>
+        </div>
+        <div class="dm-panel">
+            <form id="dm-form" autocomplete="off">
+                <input id="dm-user-id" type="text" placeholder="Enter User ID to chat privately..." maxlength="36" />
+                <button type="submit">Start</button>
+            </form>
+            <div id="current-dm" style="margin-top:8px;font-size:0.95rem;color:#666;"></div>
+        </div>
+        <div class="chat-messages" id="chat-messages"></div>
+        <form id="message-form" autocomplete="off">
+            <input id="message-input" type="text" placeholder="Type a message..." required autocomplete="off" disabled />
+            <button type="submit" disabled></button>
+        </form>
+        <div id="no-dm-msg" style="text-align:center;color:#888;margin:16px 0;display:none;">Select a user ID to start a 1-to-1 chat.</div>
+    </div>
+    <div class="auth-modal" id="auth-modal">
+        <div class="modal-content">
+            <div id="auth-tabs">
+                <button id="show-signup" class="active">Sign Up</button>
+                <button id="show-login">Log In</button>
+            </div>
+            <form id="signup-form" style="display:block;">
+                <div style="margin-bottom:10px;">
+                    <label for="signup-user-id" class="signup-label">User ID:</label><br>
+                    <input id="signup-user-id" type="text" placeholder="Choose your ID or leave it" maxlength="16" pattern="[a-z0-9]{4,16}" autocomplete="off" />
+                    <button type="button" id="signup-random-id">Random</button>
+                </div>
+                <div style="margin-bottom:10px;">
+                    <label>Password:</label><br>
+                    <input id="signup-password" type="password" required minlength="6" autocomplete="new-password" />
+                </div>
+                <button type="submit">Sign Up</button>
+                <div id="signup-id-info" style="margin-top:10px;color:#075e54;font-size:0.97rem;display:none;"></div>
+                <div id="signup-error" style="margin-top:8px;color:#b00;font-size:0.97rem;display:none;"></div>
+            </form>
+            <form id="login-form" style="display:none;">
+                <div style="margin-bottom:10px;">
+                    <label>User ID:</label><br>
+                    <input id="login-id" type="text" required maxlength="36" autocomplete="username" />
+                </div>
+                <div style="margin-bottom:10px;">
+                    <label>Password:</label><br>
+                    <input id="login-password" type="password" required minlength="6" autocomplete="current-password" />
+                </div>
+                <button type="submit">Log In</button>
+            </form>
+        </div>
+    </div>
+    <button id="logout-btn" style="display:none;position:fixed;top:16px;right:16px;z-index:1001;">Logout</button>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.7/dist/umd/supabase.min.js"></script>
+    <script src="client.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/service-worker.js');
+        });
+      }
+    </script>
+</body>
+</html> 
