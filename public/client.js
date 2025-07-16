@@ -1,8 +1,8 @@
 // client.js
 // Handles client-side chat logic with Supabase Auth (short random ID + password)
 
-const SUPABASE_URL = 'https://hksohnvghkhyffmdmndw.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhrc29obnZnaGtoeWZmbWRtbmR3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI1NzcwNDcsImV4cCI6MjA2ODE1MzA0N30.X03p6gJtXnD5_fdQnneUDCSSAJgkF-Nq_V9HfcJZuvU';
+const SUPABASE_URL = 'your url';
+const SUPABASE_ANON_KEY = 'your key';
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 let userId = '';
