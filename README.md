@@ -9,6 +9,9 @@
 > 4. Open the forwarded port (3000) to access your chat app!
 
 A secure, anonymous, hacking-themed 1-to-1 chat app for Lebanon. Built with Node.js, Express, Socket.io, Supabase, and a neon cyber UI. Now with full PWA support!
+![WhatsApp Image 2025-07-16 at 1 50 54 PM](https://github.com/user-attachments/assets/b41d1dd5-32ed-4332-a425-14f07c688398)
+![WhatsApp Image 2025-07-16 at 1 50 55 PM (1)](https://github.com/user-attachments/assets/57d0eaa5-9da7-4015-9fa2-68f9fe615d71)
+![WhatsApp Image 2025-07-16 at 1 50 55 PM](https://github.com/user-attachments/assets/51563e5f-d632-425d-866f-41bcaca09fb0)
 
 ---
 
